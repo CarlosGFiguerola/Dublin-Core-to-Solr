@@ -5,7 +5,9 @@ DublinCore is, conversely speaking, a set of fields for describing document item
 This XML is particularly handly, as the OAI-ProtocolMetadataHarvest is a common way to access to records in open digital repositories.
 ### Data Source example
 an DublinCore record in such XML format looks like:
+
 <pre>
+
 <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://
 www.w3.org/2001/XMLSchema-instance" xmlns="http://www.openarchives.org/OAI/2.0/" xsi:schemaLocation="http://www.openarchives.org/OAI
 /2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
@@ -32,7 +34,8 @@ livros que atende ao Curso de Com&#233;rcio Exterior da Universidade do Vale do 
      [Journal article (Unpaginated)] </dc:identifier></oai_dc:dc>
 
 </pre>
-We ca see fields, which are optional and also can have several values in the same record.
+
+We can see fields, which are optional and also can have several values in the same record.
 
 ### Solr Schema
 Solr looks for field features (data type, required or not, etc.) in a file called **schema.xml** or, in more recent Solr versions, **managed-schema**.
