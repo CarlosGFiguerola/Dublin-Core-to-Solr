@@ -39,7 +39,11 @@ We can see fields, which are optional and also can have several values in the sa
 
 ### Solr Schema
 Solr looks for field features (data type, required or not, etc.) in a file called **schema.xml** or, in more recent Solr versions, **managed-schema**.
-For enabling Solr to index DublinCore records, we must to define fields in our **schema** file.
+For enabling Solr to index DublinCore records, we must to define fields in our **schema** file. A managed-schema file is provided as an example. Although it is a minimal schema file, it works; note that
+- real use of Dublin Core fields varies, following diverse interpretations
+- some fields are defined as text (general or english text), but you can specify another kind of text (spanish, french, ...)
+- some fields are defined as *string* (that is, they can't be tokenized, stemmed, etc.); this can be good for normalized values as URLs, doctypes (example: "application/pdf") or even for subject headings, if they are controlled ones
+- choose your data types carefully, acording the specific use of Dublin Core on your records
 
 
 ### Reading records, identifying fields
