@@ -8,30 +8,30 @@ an DublinCore record in such XML format looks like:
 
 <pre>
 
-<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://
+&lt;oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://
 www.w3.org/2001/XMLSchema-instance" xmlns="http://www.openarchives.org/OAI/2.0/" xsi:schemaLocation="http://www.openarchives.org/OAI
-/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-        <dc:relation>http://eprints.rclis.org/9989/</dc:relation>
-        <dc:title>Avalia&#231;&#227;o da cole&#231;&#227;o de livros que atende ao Curso de Com&#233;rcio Exterior da Universidade d
-o Vale do Itaja&#237;</dc:title>
-        <dc:creator>Borinelli, Christiane Aparecida</dc:creator>
-        <dc:creator>Nascimento, Maria de Jesus</dc:creator>
-        <dc:subject>J. Technical services in libraries, archives, museum.</dc:subject>
-        <dc:description>It presents the results of the evaluation of the collection of workmanships of the Course of Foreign commerc
+/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd"&gt;
+        &lt;dc:relation&gt;http://eprints.rclis.org/9989/&lt;/dc:relation&gt;
+        &lt;dc:title&gt;Avalia&#231;&#227;o da cole&#231;&#227;o de livros que atende ao Curso de Com&#233;rcio Exterior da Universidade d
+o Vale do Itaja&#237;&lt;/dc:title&gt;
+        &lt;dc:creator&gt;Borinelli, Christiane Aparecida&lt;/dc:creator&gt;
+        &lt;dc:creator&gt;Nascimento, Maria de Jesus&lt;/dc:creator&gt;
+        &lt;dc:subject&gt;J. Technical services in libraries, archives, museum.&lt;/dc:subject&gt;
+        &lt;dc:description&gt;It presents the results of the evaluation of the collection of workmanships of the Course of Foreign commerc
 e of the Communitarian Central Library of the University of the Valley of the Itaja&#237;. 175 workmanships cited in basic bibliogra
 phies of the programs of education of the related course had been analyzed, and verified the number of units that consist in the qua
 ntity of the BCC, as well as the average life, obsolescence and use of this quantity. The library possesss 89% of the cited headings
 , however, only 69% of the collection are brought up to date editions. The average life of the cited workmanships is between that th
-ey have between five and six years of publication</dc:description>
-        <dc:date>2006</dc:date>
-        <dc:type>Journal article (Unpaginated)</dc:type>
-        <dc:type>PeerReviewed</dc:type>
-        <dc:format>application/pdf</dc:format>
-        <dc:language>en</dc:language>
-        <dc:identifier>http://eprints.rclis.org/9989/1/Avalia%C3%A7%C3%A3o_de_cole%C3%A7%C3%A3o.pdf</dc:identifier>
-        <dc:identifier>  Borinelli, Christiane Aparecida and Nascimento, Maria de Jesus Avalia&#231;&#227;o da cole&#231;&#227;o de 
+ey have between five and six years of publication&lt;/dc:description&gt;
+        &lt;dc:date&gt;2006&lt;/dc:date&gt;
+        &lt;dc:type&gt;Journal article (Unpaginated)&lt;/dc:type&gt;
+        &lt;dc:type&gt;PeerReviewed&lt;/dc:type&gt;
+        &lt;dc:format&gt;application/pdf&lt;/dc:format&gt;
+        &lt;dc:language&gt;en&lt;/dc:language&gt;
+        &lt;dc:identifier&gt;http://eprints.rclis.org/9989/1/Avalia%C3%A7%C3%A3o_de_cole%C3%A7%C3%A3o.pdf&lt;/dc:identifier&gt;
+        &lt;dc:identifier&gt;  Borinelli, Christiane Aparecida and Nascimento, Maria de Jesus Avalia&#231;&#227;o da cole&#231;&#227;o de 
 livros que atende ao Curso de Com&#233;rcio Exterior da Universidade do Vale do Itaja&#237;. Biblionline, 2006, vol. 2, n. 1 ano .  
-     [Journal article (Unpaginated)] </dc:identifier></oai_dc:dc>
+     [Journal article (Unpaginated)] &lt;/dc:identifier&gt;&lt;/oai_dc:dc&gt;
 
 </pre>
 
