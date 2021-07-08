@@ -47,5 +47,6 @@ For enabling Solr to index DublinCore records, we must to define fields in our *
 
 
 ### Reading records, identifying fields
+script dc2solr.py does the job
 
 ### Producing XML ready to be ingested by Solr
