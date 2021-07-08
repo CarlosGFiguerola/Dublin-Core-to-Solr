@@ -2,12 +2,11 @@
 reads in XML files with DublinCore records and prepares them
 to be ingested by Solr retrieval system
 
-XML files are one per record, and they follow the OAI-PMH spec
+XML files are one per record, and the follows the OAI-PMH spec
 
 '''
 from glob import glob
 from lxml import etree
-import requests
 from sys import argv, exit
 
 def help():
@@ -20,7 +19,7 @@ def help():
 	if not -o output_folder is provided, output es trough the screen,
 	just for check pourposes
 	''')
-	
+	exit(88)
 
 # namespaces for parsing XML DC
 namespaces = {'dc':'http://purl.org/dc/elements/1.1/', 'rdf':'http://www.w3.org/1999/02/22-rdf-syntax-ns#'}
@@ -28,7 +27,27 @@ fields=['dc:title','dc:creator','dc:subject','dc:description',
 	'dc:publisher', 'dc:contributor', 'dc:date', 'dc:type', 'dc:format', 'dc:identifier',
 	'dc:source','dc:language', 'dc:relation', 'dc:coverage', 'dc:rights']
 
-pathin='/home/figue/e-lis/xml'
+# catching arguments
+pathin=''
+pathout=''
+if len(argv) < 2:
+	help()
+try:
+	for e in range(1, len(argv)):
+		if argv[e]=='-i':
+			pathin=argv[e+1]
+		elif argv[e]=='-o':
+			pathout=argv[e+1]
+except:
+	print('bad arguments...')
+	help()
+
+if pathin=='':
+	print('need an input as argument...')
+	help()
+# if pathout == '' assume output in the script for visual check
+
+
 for filepath in glob(pathin+'/*'):
 	r=etree.parse(filepath)
 	# getting fields, note that they could be multivalued
@@ -36,11 +55,34 @@ for filepath in glob(pathin+'/*'):
 	for field in fields:
 		values=[v.text for v in r.findall('.//'+field, namespaces)]
 		thisrecord[field]=values
-
-	#---- print just to make visual checks ---
-	print(filepath)
+	'''
+	# check if dc:identifier is a reference
+	reference=''
+	for identifier in thisrecord['dc:identifier']:
+		if identifier.find('[') >  0:
+			# keep as field reference
+			reference=identifier
+			break # assume there is only one ref
+	if reference !='':
+		thisrecord['reference']=[reference]
+		thisrecord['dc:identifier'].remove(reference)
+	'''
+	# finally, output thisrecord in a suitable format for Solr
+	record=''
 	for field in sorted(thisrecord.keys()):
-		print(field,':', thisrecord[field])
-	print('==============================')
-	#-----
-	# translate to Solr fields and save in files
+		for value in thisrecord[field]:
+			record=record+'<field name="'+field+'">'+value+'</field>\n'
+	record='<add>\n<doc>\n'+record+'</doc>\n</add>\n'
+	
+	# preparing new filename, if we wanted output to a file for every record
+	if pathout !='':
+		filename=filepath.split('/')[-1]
+		filename=filename+'_2solr.xml'
+		filename=pathout+'/'+filename
+		F=open(filename,'w')
+		F.write(record)
+		F.close()
+	else: # instead, output to the screen
+		print(record)
+
+
