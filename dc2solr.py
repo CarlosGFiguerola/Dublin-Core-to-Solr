@@ -2,12 +2,25 @@
 reads in XML files with DublinCore records and prepares them
 to be ingested by Solr retrieval system
 
-XML files are one per record, and the follows the OAI-PMH spec
+XML files are one per record, and they follow the OAI-PMH spec
 
 '''
 from glob import glob
 from lxml import etree
 import requests
+from sys import argv, exit
+
+def help():
+	# just print somoe info about the use of the script
+	# end exit
+	print('''
+	usage: python3 dc2solr.py  -i input_folder -o output folder
+	input_folder is the path to the folder with XML records
+	ouput_folder es the path for saving recoreds ready for Solr
+	if not -o output_folder is provided, output es trough the screen,
+	just for check pourposes
+	''')
+	
 
 # namespaces for parsing XML DC
 namespaces = {'dc':'http://purl.org/dc/elements/1.1/', 'rdf':'http://www.w3.org/1999/02/22-rdf-syntax-ns#'}
