@@ -2,7 +2,7 @@
 reads in XML files with DublinCore records and prepares them
 to be ingested by Solr retrieval system
 
-XML files are one per record, and the follows the OAI-PMH spec
+XML files are one per record, and they follows the OAI-PMH spec
 
 '''
 from glob import glob
@@ -10,13 +10,13 @@ from lxml import etree
 from sys import argv, exit
 
 def help():
-	# just print somoe info about the use of the script
+	# just print some info about the use of the script
 	# end exit
 	print('''
 	usage: python3 dc2solr.py  -i input_folder -o output folder
 	input_folder is the path to the folder with XML records
 	ouput_folder es the path for saving recoreds ready for Solr
-	if not -o output_folder is provided, output es trough the screen,
+	if not -o output_folder is provided, output is done trough the screen,
 	just for check pourposes
 	''')
 	exit(88)
@@ -56,18 +56,12 @@ for filepath in glob(pathin+'/*'):
 		values=[v.text for v in r.findall('.//'+field, namespaces)]
 		thisrecord[field]=values
 	'''
-	# check if dc:identifier is a reference
-	reference=''
-	for identifier in thisrecord['dc:identifier']:
-		if identifier.find('[') >  0:
-			# keep as field reference
-			reference=identifier
-			break # assume there is only one ref
-	if reference !='':
-		thisrecord['reference']=[reference]
-		thisrecord['dc:identifier'].remove(reference)
+	WARN:
+	depending on the specific use of DublinCore in every specific set of records,
+	perhaps check and transformation of some fields should be done before output.
+	This is just a crude translation from DC
 	'''
-	# finally, output thisrecord in a suitable format for Solr
+	# output thisrecord in a suitable format for Solr
 	record=''
 	for field in sorted(thisrecord.keys()):
 		for value in thisrecord[field]:
